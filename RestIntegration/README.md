@@ -13,3 +13,5 @@ This also has a single page application that runs on port 8080 and displays the 
 #Running Integration 
 1. mvn spring-boot:run
 
+# How to see Data
+1. open browser localhost:8080
