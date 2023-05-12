@@ -1,4 +1,4 @@
-package innovyt.stayntouch;
+package msharma.integration;
 
 import org.springframework.web.bind.annotation.GetMapping;
 

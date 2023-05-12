@@ -1,4 +1,4 @@
-package innovyt.stayntouch;
+package msharma.integration;
 
 // camel-k: language=java
 

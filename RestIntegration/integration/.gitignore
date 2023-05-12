@@ -10,5 +10,5 @@
 /build
 
 # UI
-/src/main/resource/static
+src/main/resource/static/
 
