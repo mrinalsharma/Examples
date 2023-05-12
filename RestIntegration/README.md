@@ -4,7 +4,7 @@ This also has a single page application that runs on port 8080 and displays the 
 
 # Prerequisite
 1. Install docker
-2. docker pull mongo:4.0.4
+2. docker pull mongo:latest
 3. docker run -d -p 27017:27017 --name integration mongo:latest
 # Build Web application
 1. npm run build
