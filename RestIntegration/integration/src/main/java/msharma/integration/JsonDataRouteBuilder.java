@@ -5,7 +5,7 @@ import org.apache.camel.model.rest.RestBindingMode;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Reservation extends RouteBuilder {
+public class JsonDataRouteBuilder extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
@@ -16,15 +16,15 @@ public class Reservation extends RouteBuilder {
         .corsHeaderProperty("Access-Control-Allow-Methods", "GET") ;
         
         rest("/api/v2")
-        .get("reservation").produces("application/json").to("direct:mongodbFetch")
-        .post("reservation").consumes("application/json").to("direct:newIntegration");
+        .get("jsondata").produces("application/json").to("direct:mongodbFetch")
+        .post("jsondata").consumes("application/json").to("direct:newIntegration");
         
-        from("direct:newIntegration").to("kamelet:mongodb-sink?hosts=localhost:27017&collection=reservation&database=integration")
+        from("direct:newIntegration").to("kamelet:mongodb-sink?hosts=localhost:27017&collection=jsondata&database=integration")
            .log("Processing ${body}");
         
-        from("direct:mongodbFetch").to("mongodb:integration?hosts=localhost:27017&collection=reservation&database=integration&operation=findAll");
+        from("direct:mongodbFetch").to("mongodb:integration?hosts=localhost:27017&collection=jsondata&database=integration&operation=findAll");
         
         from("kamelet:timer-source?message=hello&period=20000").process(new GenerateData()).marshal().json(JsonLibrary.Jackson)
-        .to("kamelet:http-sink?url=http://localhost:8081/api/v2/reservation");
+        .to("kamelet:http-sink?url=http://localhost:8081/api/v2/jsondata");
     }
 }

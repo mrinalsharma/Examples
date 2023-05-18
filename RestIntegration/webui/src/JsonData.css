@@ -1,0 +1,30 @@
+.collapsible-json {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.collapse-button {
+  font-weight: bold;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.json-content {
+  flex: 1;
+  text-align: left;
+}
+
+.json-key {
+  margin-right: 0.5rem;
+}
+
+.json-value {
+  color: blue;
+  font-style: italic;
+  text-align: left;
+}
+
+.null-value {
+  color: #888;
+}

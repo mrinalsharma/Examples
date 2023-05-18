@@ -1,13 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import ReservationTable from './Reservation';
+import JsonDataPage from './JsonDataPage';
 
 
 function App() {
   return (
     <div className="App">
-      <ReservationTable />
+      <JsonDataPage />
     </div>
   );
 }
